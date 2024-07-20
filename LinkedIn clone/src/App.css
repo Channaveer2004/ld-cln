@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f2ef;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.app_body {
+  display: flex;
+  width: 100%;
+  max-width: 1128px;
+  margin-top: 20px;
+}
