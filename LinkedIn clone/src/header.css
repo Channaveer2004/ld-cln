@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-evenly;
     border-bottom: 1px solid lightgrey;
+    background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100%;
@@ -33,6 +34,7 @@
 }
 
 .header_search > input{
+    /* background-color: aqua; */
     outline: none;
     border: none;
     background: none;
