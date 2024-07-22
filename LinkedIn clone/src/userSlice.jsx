@@ -9,18 +9,18 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      state.value = action.payload;
+      state.user = action.payload;
     },
     
     logout: (state) => {
-      state.user += null;
+      state.user = null;
     }
     
   }
 });
 
 // Exporting actions
-export const { increment, decrement, incrementByAmount, setUser, clearUser } = userSlice.actions;
+export const { login,logout, } = userSlice.actions;
 
 // Selector to get user from state
 export const selectUser = (state) => state.user.user;
