@@ -1,14 +1,14 @@
 .sidebar {
     position: sticky;
     top: 80px;
-    flex: 0.2;
+    flex: 0.4;
     border-radius: 10px;
     text-align: center;
     height: fit-content;
     background-color: #ffffff;
     border: 1px solid lightgray;
     overflow: hidden;
-    width: 240px; /* Adjust this value to make the sidebar narrower */
+    width: 340px; /* Adjust this value to make the sidebar narrower */
 }
 
 .sidebar_top {

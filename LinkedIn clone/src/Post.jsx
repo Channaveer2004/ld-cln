@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import "./post.css"
 import { Avatar } from '@mui/material'
 import InputOption from './InputOption'
@@ -6,12 +6,15 @@ import RecommendIcon from '@mui/icons-material/Recommend';
 import CommentIcon from '@mui/icons-material/Comment';
 import SwapCallsIcon from '@mui/icons-material/SwapCalls';
 import SendIcon from '@mui/icons-material/Send';
+import { useSelector } from 'react-redux';
+import { selectUser } from './userSlice';
 
-function Post({ name, description, message, photoUrl }) {
+const Post = forwardRef(({ name, description, message, photoUrl },ref) =>{
+    const user = useSelector(selectUser)
     return (
-        <div className='post'>
+        <div ref={ref} className='post'>
             <div className="post_header">
-                <Avatar src={photoUrl} />
+                <Avatar src={photoUrl} >{name[0]}</Avatar>
                 <div className="post_info">
                     <h2>{name}</h2>
                     <p>{description}</p>
@@ -46,6 +49,6 @@ function Post({ name, description, message, photoUrl }) {
             </div>
         </div>
     )
-}
+})
 
 export default Post

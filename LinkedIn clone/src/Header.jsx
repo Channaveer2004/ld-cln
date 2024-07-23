@@ -7,17 +7,27 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HeaderOption from './HeaderOption';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from './userSlice';
+import { auth } from './firebase';
 
 
 function Header() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch()
+  const logoutOfApp = ()=>{
+    dispatch(logout())
+    auth.signOut()
+  }
+
   return (
     <div className="header">
 
       <div className="header_left">
         <img src="https://itcnet.gr/wp-content/uploads/2020/09/Linkedin-logo-on-transparent-Background-PNG--1200x1200.png" alt="" />
-        <div className="header_search">
+        <div className="header_search" >
           <SearchIcon />
-          <input type="text" />
+          <input type="text" placeholder='Search'/>
         </div>
       </div>
 
@@ -28,7 +38,10 @@ function Header() {
         <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
         <HeaderOption Icon={ChatIcon} title="Messaging" />
         <HeaderOption Icon={NotificationsIcon} title="Notification" />
-        <HeaderOption avatar="https://media.licdn.com/dms/image/D5603AQFsj6GHfJWVGw/profile-displayphoto-shrink_800_800/0/1684075953254?e=1726704000&v=beta&t=voGmrkI41pbTD9Tt6O-TENyC61jmx0FOPBkX6NYgw1Q"/>
+        <HeaderOption avatar={true}
+        title="me"
+        onClick={logoutOfApp}
+        />
       </div>
     </div>
   )
