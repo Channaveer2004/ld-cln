@@ -47,12 +47,13 @@ function Login() {
             }
 
             createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
+                .then(async (userCredential) => {
                     const user = userCredential.user;
-                    return updateProfile(user, {
+                    await updateProfile(user, {
                         displayName: name,
                         photoURL: propic
-                    }).then(() => user); 
+                    })
+                    return user 
                 })
                 .then((user) => {
                     dispatch(login({
